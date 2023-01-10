@@ -62,8 +62,7 @@ export const renderItems = async () => {
 
 const likeButton = document.querySelector('.like-button');
 likeButton.addEventListener('click', async (e) => {
-  const id = e.target.dataset.id;
-  await createLike(id);
+  await createLike(e.target.dataset.id);
   renderItems();
 });
 
