@@ -4,12 +4,25 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(./Assets/background.png);
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   margin: 20px;
+}
+
+h2 {
+  color: rgb(140, 207, 23);
+  font-size: 3.5rem;
+}
+
+span {
+  color: rgba(255, 166, 0, 0.63);
 }
 
 ul {
@@ -19,6 +32,12 @@ ul {
 
 ul li {
   margin: 0 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: coral;
+  font-size: 1.5rem;
 }
 
 .tvshow {
@@ -31,6 +50,8 @@ ul li {
 
 .tvshow h3 {
   margin: 20px;
+  font-size: 2.5rem;
+  color: #ccc;
 }
 
 .show {
