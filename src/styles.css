@@ -70,8 +70,8 @@ ul li a {
 }
 
 .like-button svg {
-  width: 1.5em;
-  height: 1.5em;
+  width: 2.5em;
+  height: 2.5em;
   fill: #ccc;
 }
 
@@ -93,6 +93,56 @@ ul li a {
   justify-content: center;
   align-items: center;
   margin: 20px;
+}
+
+.show-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.show-item {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 20px;
+  background-color: rgba(79, 76, 76, 0.301);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(21, 168, 21, 0.5);
+}
+
+.show-item .show-image {
+  border-radius: 10px;
+  width: 100%;
+  height: 250px;
+}
+
+.show-item .details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+
+.show-item .details .show-title {
+  font-size: 2rem;
+  color: #ccc;
+}
+
+.comment-button {
+  display: flex;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .footer {
