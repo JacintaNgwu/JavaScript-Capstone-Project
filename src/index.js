@@ -21,7 +21,7 @@ export async function updateShowList() {
 
   showItems.innerHTML = '';
 
-  for (const show of shows) {
+  shows.forEach((show) => {
     const showElement = document.createElement('div');
     showElement.classList.add('show-item');
     showElement.innerHTML = `
@@ -39,7 +39,7 @@ export async function updateShowList() {
     <button type="submit" class="comment-button">Comment</button>
     </div>`;
     showItems.appendChild(showElement);
-  }
+  });
 }
 
 updateShowList();
