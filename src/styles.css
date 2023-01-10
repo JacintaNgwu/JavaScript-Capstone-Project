@@ -94,3 +94,16 @@ ul li a {
   align-items: center;
   margin: 20px;
 }
+
+.footer {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  color: blanchedalmond;
+  background-color: black;
+  padding: 20px;
+  font-size: 1.2rem;
+}
