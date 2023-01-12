@@ -93,14 +93,6 @@ ul li a {
   margin: 20px;
 }
 
-.comment {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
 .show-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -253,23 +245,29 @@ ul li a {
   justify-content: center;
   align-items: center;
   margin: 20px;
+  padding: 0;
 }
 
 .comment-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
+  margin: 10px;
+  width: 100%;
+  padding: 0;
+}
+
+.comment-list .lists {
+  color: #ccc;
+  font-size: 1.5rem;
+  margin: 10px;
 }
 
 .comment-item {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 10px;
-  margin-right: 180px;
-  gap: 5px;
 }
 
 .comment-form {
@@ -278,6 +276,20 @@ ul li a {
   justify-content: center;
   align-items: center;
   margin: 20px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  float: left;
+  color: #ccc;
+  font-size: 1.7rem;
+}
+
+.comment-date {
+  font-style: italic;
 }
 
 .add {
