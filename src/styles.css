@@ -124,11 +124,25 @@ ul li a {
   height: 250px;
 }
 
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 .show-item .details {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 20px;
+}
+
+.details .show-title {
+  font-size: 3.5rem;
+  color: rgb(170, 170, 9);
+  margin-bottom: 20px;
 }
 
 .show-item .details .show-title {
@@ -192,20 +206,6 @@ ul li a {
   padding: 8px;
   border-radius: 50%;
   color: white;
-}
-
-.details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
-.details .show-title {
-  font-size: 3.5rem;
-  color: rgb(170, 170, 9);
-  margin-bottom: 20px;
 }
 
 .details .show-description {
