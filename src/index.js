@@ -1,65 +1,36 @@
 /* eslint-disable indent */
 import './styles.css';
-import { BASE_URL, MOVIE_API } from './modules/api.js';
+import { getLikes, addLike } from './modules/likes.js';
+import getComments from './modules/comment/getcomment.js';
+import addComment from './modules/comment/addcomment.js';
+import itemCounter from './modules/itemCounter.js';
+// import commentCounter from './modules/comment/commentCounter.js';
 
 const showItems = document.querySelector('.show-container');
-const itemCount = document.querySelector('.item-counter');
+// const itemCount = document.querySelector('.item-counter');
+const MOVIE_API = 'https://api.tvmaze.com/shows';
 
-export async function getLikes(showId) {
-  const response = await fetch(`${BASE_URL}/likes?item_id=${showId}`);
-  const likes = await response.json();
-  // console.log(likes);
-  return likes;
-}
+getLikes();
+addLike();
+getComments();
+addComment();
 
-export async function getShows() {
+const getShows = async () => {
   const response = await fetch(MOVIE_API);
   const items = await response.json();
-  // console.log(items);
+
   const faverite = await getLikes();
   const moviesAndlikes = [items, faverite];
   return moviesAndlikes;
-}
+};
 
-export async function addLike(showId) {
-  const response = await fetch(`${BASE_URL}/likes`, {
-    method: 'POST',
-    body: JSON.stringify({ item_id: showId }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-  if (response.status === 201) {
-    return true;
-  }
-    throw new Error(
-      `Error adding like: ${response.status} ${response.statusText}`,
-    );
-}
+export default getShows;
 
-// getComments
-export async function getComments(showId) {
-  const response = await fetch(`${BASE_URL}/comments?item_id=${showId}`);
-  const comments = await response.json();
-  return comments;
-}
-
-export async function addComment(showId, name, comment) {
-  await fetch(`${BASE_URL}/comments`, {
-    method: 'POST',
-    body: JSON.stringify({ item_id: showId, username: name, comment }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-  return {};
-}
-
-export async function updateShowList() {
+const updateShowList = async () => {
   const shows = await getShows();
+
   const showsList = shows[0];
   const likeList = shows[1];
-  itemCount.innerHTML = `(${showsList.length})`;
   showItems.innerHTML = '';
   showsList.forEach(async (show) => {
     const showElement = document.createElement('div');
@@ -87,11 +58,13 @@ export async function updateShowList() {
     <button  class="comment-button">Comment</button>
     </div>
     `;
+    const h3 = document.querySelector('.tv-title');
     showItems.appendChild(showElement);
+    const count = document.querySelectorAll('.show-item');
+    itemCounter(h3, count);
     const likeBtn = showElement.querySelector('.like-button');
     likeBtn.addEventListener('click', async () => {
       likeBtn.classList.toggle('liked');
-      // e.preventDefault();
       await addLike(show.id);
       updateShowList();
     });
@@ -127,7 +100,9 @@ export async function updateShowList() {
         <ul class="comment-list">
         ${comments
           .map(
-            (comment) => `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
+            (comment) =>
+              // eslint-disable-next-line implicit-arrow-linebreak
+              `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
           )
           .join('')}
         </ul>
@@ -161,9 +136,9 @@ export async function updateShowList() {
           const comment = document.querySelector('#comment').value;
           await addComment(show.id, name, comment);
           const comments = await getComments(show.id);
-          const commentCount = document.querySelector('.comment-count');
-          commentCount.innerHTML = comments.length;
+          // const commentCount = document.querySelector('.comment-count');
           const commentList = document.querySelector('.comment-list');
+
           commentList.innerHTML = '';
           comments.forEach((comment) => {
             const commentItem = document.createElement('li');
@@ -181,11 +156,13 @@ export async function updateShowList() {
             `;
             commentList.appendChild(commentItem);
           });
+          // const noOfComments = commentCounter(commentList);
+          // commentCount.innerHTML = noOfComments;
           document.querySelector('#name').value = '';
           document.querySelector('#comment').value = '';
         });
       });
     });
   });
-}
+};
 updateShowList();

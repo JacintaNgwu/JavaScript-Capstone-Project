@@ -1,12 +1,15 @@
 {
   "name": "javascript-capstone-project",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "description": "<a name=\"readme-top\"></a>",
   "main": "index.js",
   "scripts": {
     "build": "webpack ",
     "dev": "webpack serve",
-    "test": "jest",
+    "test": "jest --coverage",
     "start": "webpack serve -open"
   },
   "repository": {
@@ -34,6 +37,8 @@
     "hint": "^7.1.3",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "jsdom": "^21.0.0",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
