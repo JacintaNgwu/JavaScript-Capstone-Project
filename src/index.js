@@ -4,7 +4,7 @@ import { getLikes, addLike } from './modules/likes.js';
 import getComments from './modules/comment/getcomment.js';
 import addComment from './modules/comment/addcomment.js';
 import itemCounter from './modules/itemCounter.js';
-// import commentCounter from './modules/comment/commentCounter.js';
+import commentCounter from './modules/comment/commentCounter.js';
 
 const showItems = document.querySelector('.show-container');
 // const itemCount = document.querySelector('.item-counter');
@@ -136,7 +136,7 @@ const updateShowList = async () => {
           const comment = document.querySelector('#comment').value;
           await addComment(show.id, name, comment);
           const comments = await getComments(show.id);
-          // const commentCount = document.querySelector('.comment-count');
+          const commentCount = document.querySelector('.comment-count');
           const commentList = document.querySelector('.comment-list');
 
           commentList.innerHTML = '';
@@ -156,8 +156,8 @@ const updateShowList = async () => {
             `;
             commentList.appendChild(commentItem);
           });
-          // const noOfComments = commentCounter(commentList);
-          // commentCount.innerHTML = noOfComments;
+          const noOfComments = commentCounter(commentList);
+          commentCount.innerHTML = noOfComments;
           document.querySelector('#name').value = '';
           document.querySelector('#comment').value = '';
         });
