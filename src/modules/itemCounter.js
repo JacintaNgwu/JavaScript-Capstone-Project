@@ -1,11 +1,12 @@
 /* eslint-disable import/no-cycle */
-import getShows from '../index.js';
+// import getShows from '../index.js';
 
-const itemCounter = async () => {
-  const itemCount = document.querySelector('.item-counter');
-  const shows = await getShows();
-  const showsList = shows[0];
-  itemCount.innerHTML = `(${showsList.length})`;
+const itemCounter = (h3, count) => {
+  if (count.length !== 0) {
+    h3.innerHTML = `TVSHOWS <span class="item-counter">${count.length}</span>`;
+  } else {
+    h3.innerHTML = 'No tvshows added';
+  }
 };
 
 export default itemCounter;

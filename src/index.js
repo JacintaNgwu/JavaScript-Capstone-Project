@@ -4,7 +4,7 @@ import { getLikes, addLike } from './modules/likes.js';
 import getComments from './modules/comment/getcomment.js';
 import addComment from './modules/comment/addcomment.js';
 import itemCounter from './modules/itemCounter.js';
-import commentCounter from './modules/comment/commentCounter.js';
+// import commentCounter from './modules/comment/commentCounter.js';
 
 const showItems = document.querySelector('.show-container');
 // const itemCount = document.querySelector('.item-counter');
@@ -14,8 +14,6 @@ getLikes();
 addLike();
 getComments();
 addComment();
-itemCounter();
-commentCounter();
 
 const getShows = async () => {
   const response = await fetch(MOVIE_API);
@@ -30,7 +28,8 @@ export default getShows;
 
 const updateShowList = async () => {
   const shows = await getShows();
-  itemCounter();
+  // itemCounter();
+
   const showsList = shows[0];
   const likeList = shows[1];
   showItems.innerHTML = '';
@@ -60,11 +59,13 @@ const updateShowList = async () => {
     <button  class="comment-button">Comment</button>
     </div>
     `;
+    const h3 = document.querySelector('.tv-title');
     showItems.appendChild(showElement);
+    const count = document.querySelectorAll('.show-item');
+    itemCounter(h3, count);
     const likeBtn = showElement.querySelector('.like-button');
     likeBtn.addEventListener('click', async () => {
       likeBtn.classList.toggle('liked');
-      // e.preventDefault();
       await addLike(show.id);
       updateShowList();
     });
@@ -102,7 +103,7 @@ const updateShowList = async () => {
           .map(
             (comment) =>
               // eslint-disable-next-line implicit-arrow-linebreak
-              `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`
+              `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
           )
           .join('')}
         </ul>
@@ -136,10 +137,10 @@ const updateShowList = async () => {
           const comment = document.querySelector('#comment').value;
           await addComment(show.id, name, comment);
           const comments = await getComments(show.id);
-          // const commentCount = document.querySelector('.comment-count');
-          // commentCount.innerHTML = comments.length;
-          commentCounter();
+          const commentCount = document.querySelector('.comment-count');
+
           const commentList = document.querySelector('.comment-list');
+
           commentList.innerHTML = '';
           comments.forEach((comment) => {
             const commentItem = document.createElement('li');
@@ -157,6 +158,8 @@ const updateShowList = async () => {
             `;
             commentList.appendChild(commentItem);
           });
+          // const noOfComments = commentCounter(commentList);
+          // commentCount.innerHTML = noOfComments;
           document.querySelector('#name').value = '';
           document.querySelector('#comment').value = '';
         });
