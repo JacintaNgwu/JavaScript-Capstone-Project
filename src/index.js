@@ -28,7 +28,6 @@ export default getShows;
 
 const updateShowList = async () => {
   const shows = await getShows();
-  // itemCounter();
 
   const showsList = shows[0];
   const likeList = shows[1];
@@ -137,8 +136,7 @@ const updateShowList = async () => {
           const comment = document.querySelector('#comment').value;
           await addComment(show.id, name, comment);
           const comments = await getComments(show.id);
-          const commentCount = document.querySelector('.comment-count');
-
+          // const commentCount = document.querySelector('.comment-count');
           const commentList = document.querySelector('.comment-list');
 
           commentList.innerHTML = '';

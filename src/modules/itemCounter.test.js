@@ -1,5 +1,5 @@
 const { JSDOM } = require('jsdom');
-const { default: itemCounter } = require('./itemCounter');
+const { default: itemCounter } = require('./itemCounter.js');
 
 const dom = new JSDOM();
 global.document = dom.window.document;
