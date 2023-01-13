@@ -1,4 +1,4 @@
 /* eslint-disable operator-linebreak */
-export const BASE_URL =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
-export const MOVIE_API = 'https://api.tvmaze.com/shows';
+// export const BASE_URL =
+//   'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
+// export const MOVIE_API = 'https://api.tvmaze.com/shows';
