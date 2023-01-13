@@ -31,11 +31,10 @@ export async function addLike(showId) {
   });
   if (response.status === 201) {
     return true;
-  } else {
-    throw new Error(
-      `Error adding like: ${response.status} ${response.statusText}`
-    );
   }
+    throw new Error(
+      `Error adding like: ${response.status} ${response.statusText}`,
+    );
 }
 
 // getComments
@@ -128,8 +127,7 @@ export async function updateShowList() {
         <ul class="comment-list">
         ${comments
           .map(
-            (comment) =>
-              `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`
+            (comment) => `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
           )
           .join('')}
         </ul>
