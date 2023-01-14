@@ -1,6 +1,4 @@
-/* eslint-disable operator-linebreak */
-const BASE_URL =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
+const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
 
 export async function getLikes(showId) {
   const response = await fetch(`${BASE_URL}/likes?item_id=${showId}`);

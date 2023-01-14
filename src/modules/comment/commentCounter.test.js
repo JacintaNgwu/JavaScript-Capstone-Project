@@ -3,7 +3,7 @@ const { default: commentCounter } = require('./commentCounter.js');
 
 const dom = new JSDOM();
 global.document = dom.window.document;
-// const commentCounter = require('./commentCounter.js');
+
 describe('Counter tests', () => {
   test('Counts loaded comments in list', () => {
     const arr = ['apple', 'banana', 'pears'];

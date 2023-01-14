@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import './styles.css';
 import { getLikes, addLike } from './modules/likes.js';
 import getComments from './modules/comment/getcomment.js';
@@ -7,7 +6,6 @@ import itemCounter from './modules/itemCounter.js';
 import commentCounter from './modules/comment/commentCounter.js';
 
 const showItems = document.querySelector('.show-container');
-// const itemCount = document.querySelector('.item-counter');
 const MOVIE_API = 'https://api.tvmaze.com/shows';
 
 getLikes();
@@ -46,12 +44,12 @@ const updateShowList = async () => {
       </svg>
     </button>
     ${
-      likeList.find((like) => like.item_id === show.id)
-        ? `<span class="like-count">${
-            likeList.find((like) => like.item_id === show.id).likes
-          }</span>`
-        : ''
-    }
+  likeList.find((like) => like.item_id === show.id)
+    ? `<span class="like-count">${
+      likeList.find((like) => like.item_id === show.id).likes
+    }</span>`
+    : ''
+}
   </div>
 
     <div>
@@ -85,8 +83,8 @@ const updateShowList = async () => {
         <div class="details">
         <span class="show-title">Title: ${show.name}</span>
         <div class="show-description"><span>DESCRIPTION:</span> ${
-          show.summary
-        }</div>
+  show.summary
+}</div>
        <div class="list">
        <ul class="show-genres">
        <li class="rating">Rating: ${show.rating.average}</li>
@@ -99,12 +97,10 @@ const updateShowList = async () => {
         <h2>Comments <span class="comment-count">${comments.length}</span></h2>
         <ul class="comment-list">
         ${comments
-          .map(
-            (comment) =>
-              // eslint-disable-next-line implicit-arrow-linebreak
-              `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
-          )
-          .join('')}
+    .map(
+      (comment) => `<li class="lists">${comment.creation_date} ${comment.username}: ${comment.comment}</li>`,
+    )
+    .join('')}
         </ul>
         </div>
         <div class="comment-form">

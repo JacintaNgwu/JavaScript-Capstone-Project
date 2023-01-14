@@ -1,7 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable operator-linebreak */
-const BASE_URL =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
+const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O';
 
 const addComment = async (showId, name, comment) => {
   await fetch(`${BASE_URL}/comments`, {
